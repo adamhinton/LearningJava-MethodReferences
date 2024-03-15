@@ -3,6 +3,7 @@ package dev.lpa;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BinaryOperator;
+import java.util.function.Supplier;
 
 class PlainOld{
 
@@ -11,8 +12,8 @@ class PlainOld{
     private int id;
 
     public PlainOld() {
-        id = last_id;
-        System.out.println("Creating a PlainOld object");
+        id = last_id++;
+        System.out.println("Creating a PlainOld object: id= " + id);
     }
 }
 
@@ -28,6 +29,8 @@ public class Main {
         // Not totally sure what this means yet
         calculator(Integer::sum, 10, 25);
         calculator(Double::sum, 2.5, 7.5);
+
+        Supplier<PlainOld> reference1 = PlainOld::new;
 
     }
 
